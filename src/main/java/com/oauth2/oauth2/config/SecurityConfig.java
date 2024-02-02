@@ -18,6 +18,7 @@ public class SecurityConfig {
                     auth.anyRequest().authenticated(); // limiting access to other routes like /user and /home/secured
                 })
                 .formLogin(Customizer.withDefaults()) // generating a default login form
+                .oauth2Login(Customizer.withDefaults()) //  generating a default github redirection button
                 .build();
 
     }
