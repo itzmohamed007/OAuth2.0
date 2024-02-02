@@ -18,4 +18,15 @@ public class controller {
     public String securedHome() {
         return "hello secured world";
     }
+
+    /**
+     * Specific end point mentioned in <a href="https://spring.io/guides/tutorials/spring-boot-oauth2/#github-register-application">...</a> article explaining OAuth integration with Spring Boot
+     *
+     * @param principal handled totally from the framework
+     * @return current authenticated user account data returned from github
+     */
+    @GetMapping("/user")
+    public Map<String, OAuth2User> user(@AuthenticationPrincipal OAuth2User principal) {
+        return Map.of("name", principal);
+    }
 }
